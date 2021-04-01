@@ -6,3 +6,36 @@
   background-color: #2e2e2e;
   color: white;
 }
+.footer {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: static;
+  width: 100%;
+  height: 100px;
+  margin-top: 30px;
+
+  .social {
+    flex-direction: row;
+    display: flex;
+    padding: 5%;
+  }
+  ul {
+    justify-content: center;
+    list-style-type: none;
+  }
+
+  li {
+    color: white;
+    font-size: 1.8em;
+    padding-left: 20px;
+  }
+  p {
+    color: white;
+    font-size: 0.9em;
+    padding: 10px;
+    text-align: center;
+    background: black;
+    font-family: "Roboto", sans-serif;
+  }
+}
