@@ -4,17 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />  
    <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.1.0/screenfull.min.js" integrity="sha512-vpf3xaeHkIgfuvUQ4+shWBe7v26Qn6h72tDVRLb9OYFTRB19BTBxQalCGCAkRnVnGnQyLjSNEHvkkqdKirGETQ==" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+        <!-- <script src="https://jquery-1.10.2.min.js"></script> -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        
+
+        
 
    <link rel="stylesheet" href=css/master.css>
+
    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <title>Player Sample</title>
+    <title>Play Media Practice</title>
 </head>
 
 
 <body>
-  <div class="flat-html5-player-wrapper ">
+    <div class="flat-html5-player-wrapper ">
+
+        <section class="header">
+
+            <h1>Anime World</h1>
+
+        </section>
+
+        <section class="Explain">
+            <h1>Fantastic Planet Trailer</h1>
+            <h2>Movie</h2>
+            <p> 2 minutes 15 seconds</p>
+            <p> A Fantastic Planet is a 1973 experimental adult animated science fiction film, directed by René Laloux and written by Laloux and Roland Topor, the latter of whom also completed the film's production design. The film was animated at Jiří Trnka Studio in Prague.[2] The film was an international co-production between companies from France and Czechoslovakia. The allegorical story, about humans living on a strange planet dominated by giant humanoid aliens who consider them animals, is based on the 1957 novel Oms en série by French writer Stefan Wul.</p>
+        </section>
+    
+    
+
     <div class="flat-player" id="player">
         <div class="flat-video-preview-wrapper pointer" >
             <video src="images/movie.mp4" ref="videoElem" class="flat-video pointer"></video>
@@ -48,9 +80,9 @@
                     </div>
                     <div class="flat-video-controls-right">
                         <div class="flat-video-time-container">
-                            <span class="flat-video-current-time">{{currentTime(currentTime())}}</span>
+                            <span class="flat-video-current-time">{{currentTime()}}</span>
                             <span>/</span>
-                            <span class="flat-video-total-time">{{currentTime(duration())}}</span>
+                            <span class="flat-video-total-time">{{currentTime()}}</span>
                            </div>
                          <div class="flat-video-buttons-right-wrapper">
                              <button  v-if="isFullScreen" @click="toggleFullScreen"class="flat-video-control-single">
@@ -63,9 +95,131 @@
                  </div>
                 </div>
             </div>
-          
           </div>
+
+
+
+
+          <section class="Explain">
+            <h1>Pete the Cat Season 1, Part 1 - Trailer | Prime Video Kids</h1>
+            <h2>TV Show</h2>
+            <p> 2 minutes 14 seconds</p>
+            <p>Based on The New York Times #1 best-selling children’s books, Pete the Cat is a fun, musically driven series about exploring your world and trying new things; while being smart, accepting, and optimistic. </p>
+        </section>
+
+          <div class="flat-player" id="player2">
+            <div class="flat-video-preview-wrapper pointer" >
+                <video src="images/tv.mp4" ref="videoElem" class="flat-video pointer"></video>
+            </div>
+            <div class="flat-video-footer">
+              <div class="flat-video-progressbar pointer" @click="skipVideo">
+              <div :style="{width: progressPercentage() + '%'}" class="flat-video-current-progress pointer"></div>
+              </div>
+    
+              <div class="flat-video-controls">
+                    <div class="flat-video-controls-left">
+                        <div class="">
+                            <button v-if="isPaused()" @click="play" class="flat-video-control-single">
+                                <i class="fa fa-fw fa-play"></i>
+                            </button>
+                             <button v-if="!isPaused()" @click="pause"  class="flat-video-control-single">
+                                <i class="fa fa-fw fa-pause"></i>
+                            </button>
+                        </div>
+                        <div class="flat-video-volume-rocker">
+                             <button @click="muteToggle" v-if="isMuted()" class="flat-video-control-single">
+                                <i class="fa fa-fw fa-volume-off"></i>
+                            </button>
+                            <button @click="muteToggle" v-if="!isMuted()"  class="flat-video-control-single">
+                                <i class="fa fa-fw fa-volume-up"></i>
+                            </button>
+                            <div class="flat-video-volume-progress pointer" @click="changeVolume"> 
+                            <div :style="{ width: volume() + '%'}" class="flat-video-volume-progress-current pointer"></div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flat-video-controls-right">
+                            <div class="flat-video-time-container">
+                                <span class="flat-video-current-time">{{currentTime(currentTime())}}</span>
+                                <span>/</span>
+                                <span class="flat-video-total-time">{{currentTime(duration())}}</span>
+                               </div>
+                             <div class="flat-video-buttons-right-wrapper">
+                                 <button  v-if="isFullScreen" @click="toggleFullScreen"class="flat-video-control-single">
+                                     <i class="fa fa-fw fa-compress"></i>
+                                 </button>
+                                 <button v-if="!isFullScreen" @click="toggleFullScreen" class="flat-video-control-single">
+                                    <i class="fa fa-fw fa-expand"></i>
+                                </button>
+                             </div>  
+                     </div>
+                    </div>
+                </div>
+              </div>
+
+
         </div>
+
+
+
+
+<!-- 
+        <div id="bg">
+            <section class="Explain">
+              <h1>I'm YOurs</h1>
+              <h2>Music</h2>
+              <!-- <p> 2 minutes 14 seconds</p> -->
+              <!-- <p>Based on The New York Times #1 best-selling children’s books, Pete the Cat is a fun, musically driven series about exploring your world and trying new things; while being smart, accepting, and optimistic. </p> -->
+              <!-- </section>
+              <div id="blackLayer"></div>
+              <img src="images/musicCover.jpg" alt="">
+             </div> --> -->
+
+            
+     
+             <section class="Explain2">
+                <h1 class="h1">Jason Mraz: I'm Yours</h1>
+                <h2 class="h2">Music</h2>
+             </section>
+        
+
+             <div id="main">
+
+                 <div id="image">
+                     <img src="images/poster1.jpg" alt="">
+                 </div>
+                <div id="player">
+                    <div id="songTitle"></div>
+                    <div id="buttons">
+                        <button id="pre" onclick= "pre()"><img src="images/pre.png" width="50px" height="50px"></button>
+                        <button id="play" onclick= "playOrPauseSong()"><img src="images/pause.png"  width="50px" height="50px"></button>
+                        <button id="next" onclick="next()"><img src="images/next.png"  width="50px" height="50px"></button>
+                    </div>
+
+                    <div id="seek-bar">
+                        <div id="fill"></div>    
+                        <div id="handle"></div> 
+                    </div>
+                </div>
+             </div>
+
+          
+        <footer class="footer">
+
+            <ul class="social">
+                <li class="socialPart"><i class="fab fa-youtube"></i></li>
+                    <li><i class="fab fa-facebook-square"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
+                    <li><i class="fab fa-twitter"></i></li>
+                </ul>
+        
+        <p>&copy;2021 Play Media, Inc. All rights reserved. </p>
+       </footer>
+
+
+
+
+ 
  
 <script src="player.js"></script>
 
