@@ -1,4 +1,4 @@
-https://github.com/Junhwa1207-design/videoControl_withVue/issues/3#issue-849101252
+<img width="400" alt="Screen Shot 2021-04-02 at 5 14 24 AM" src="https://user-images.githubusercontent.com/71682432/113402011-5a91ee00-9372-11eb-86e1-667f943ab1fe.png">
 
 
 
