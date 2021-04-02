@@ -1,3 +1,7 @@
+https://github.com/Junhwa1207-design/videoControl_withVue/issues/3#issue-849101252
+
+
+
 #Video & Audio Accessibility Research 
   
   ##TODO : Video Part
